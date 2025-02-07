@@ -3,6 +3,22 @@
     margin: 0%;
 }
 
+/*inicio*/
+
+.titulofondo {
+  font-size: 30px;
+  text-align: center;
+  color: #bbbbbb;
+  background-color: #3a3939;
+}
+.p-inicio {
+  font-size: 30px;
+  font-family: "LXGW WenKai Mono TC", monospace;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
 /*footer*/
 .footer {
     width: 100%;
@@ -47,13 +63,12 @@
     transition: all 0.3s ease;
   }
   .footer .container-footer .footer-row .social-links a {
-    min-height: 400px;
-    width: 40px;
-    margin: 0 10px 10px 0;
-    text-align: center;
-    line-height: 40px;
-    color: #ffffff;
-    transition: all 0.5s ease;
+    font-size: 15px;
+    text-decoration: none;
+    color: #bbbbbb;
+    display: block;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
   }
   .footer .container-footer .footer-row .social-links:hover {
     color: #ffffff;
