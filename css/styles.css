@@ -19,6 +19,11 @@
   text-align: center;
 }
 
+.carousel-item img {
+  width: 100%;
+  height: 400px;
+}
+
 /*footer*/
 .footer {
     width: 100%;
