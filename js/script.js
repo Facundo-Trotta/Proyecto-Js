@@ -1,62 +1,60 @@
-//saludo
-alert ("hola y encantado de que vengas a nuestras a nuestras pagina");
-function saludar (nombre) {
-    console.log ("hola y bienvenido" + nombre);
-    alert ("hola y bienvenido " + nombre);
+const productos = [
+    {
+        id: 1,
+        nombre:"Gorra ajustable Under",
+        precio: 9500,
+        imagen:"img/articulos/art1.jpeg",
+        cantidad: 1
+    },
+    {
+        id: 2,
+        nombre:"Buzo Adidas de Argentina",
+        precio: 28000,
+        imagen:"img/articulos/art2.png",
+        cantidad: 1
+    },
+    {
+        id: 3,
+        nombre:"Jogger Cargo para hombre",
+        precio: 18000,
+        imagen:"img/articulos/art3.webp",
+        cantidad: 1
+    },
+    {
+        id: 4,
+        nombre:"Remera Basica Negra",
+        precio: 9000,
+        imagen:"img/articulos/art4.png",
+        cantidad: 1
+    },
+    {
+        id: 5,
+        nombre:"Zapatillas Puma",
+        precio: 48000,
+        imagen:"img/articulos/art5.webp",
+        cantidad: 1
+    },
+]
+
+//carrito
+
+let carrito = [];
+
+let productCard = document.getElementById("productos")
+
+function mostrarProductos(arrayProductos) {
+    arrayProductos.forEach(producto => {
+        const cards = document.createElement("div")
+        cards.className = "card"
+
+        cards.innerHTML = ` <div class="productos-container" ID:"${producto.id}>
+                            <img src="${producto.imagen}" alt="">
+                            <h3>${producto.nombre}</h3>
+                            <span>$${producto.precio}</span>
+                            <button class="add-cart" id="${producto.id}">Agregar al carrito</button>
+                            </div>`
+        productCard.appendChild(cards)
+    })
+    agregarAlCarrito()
 }
-function pedirNombre () {
-    let nombre = prompt ("¿como te llamas?");
-    saludar (nombre);
-}
-pedirNombre ();
-//preguntas con ciclos 
-alert ("Estamos en la duda de marca de ropa con la que trabajar primero, asi que lo dejaremos al publico.");
-let respuesta ; 
-do {
-    let respuesta = prompt ("¿Te gusta la ropa ajustada? si o no ")
-    if (respuesta === "si") {
-        console.log ("Gracias por su contestacion");
-        alert ("Gracias por su contestacion");
-        break;
-    }else if (respuesta === "no") {
-        console.log ("Gracias por su contestacion");
-        alert ("Gracias por su contestacion");
-        break;
-    }else {
-        console.log ("Porfavor ayudenos con la encuesta con un si o no");
-        alert ("Porfavor ayudenos con la encuesta con un si o no");
-    }
-} while (respuesta !== "si" && respuesta !== "no");
-
-//un poco de arrays
-let ropa = ["blanco","negro"]
-let preguntaRopa = prompt ("¿que color de ropa te gusta mas? blanco o negro")
-    if (preguntaRopa === ropa[0]) {
-        console.log ("hermoso color de ropa");
-        alert ("hermoso color de ropa");
-    }else if (preguntaRopa === ropa[1]) {
-        console.log ("hermoso color de ropa");
-        alert ("hermoso color de ropa");
-    }else { 
-        console.log ("disculpe por las molestias y gracias por pasar");
-        alert ("disculpe por las molestias y gracias por pasar");
-    }
-
-//pregunta simple 
-const pregunta = prompt ("¿adidas o nike?")
-if (pregunta === "adidas") {
-    console.log ("Increible, trabajaremos para traer esa marcas primero");
-    alert ("Increible, trabajaremos para traer esa marcas primero");
-} else if (pregunta === "nike") {
-    console.log ("Increible, trabajaremos para traer esa marcas primero");
-    alert ("Increible, trabajaremos para traer esa marcas primero");
-} else { 
-    console.log ("disculpe por las molestias y gracias por pasar");
-    alert ("disculpe por las molestias y gracias por pasar");
-}
-
-
-
-
-
-
+mostrarProductos(productos)
