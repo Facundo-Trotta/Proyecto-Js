@@ -1,3 +1,4 @@
+// la lista de los productos
 const productos = [
     {
         id: 1,
@@ -36,10 +37,7 @@ const productos = [
     },
 ]
 
-//carrito
-
-let carrito = [];
-
+//
 let productCard = document.getElementById("productos")
 
 function mostrarProductos(arrayProductos) {
