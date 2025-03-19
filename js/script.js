@@ -67,7 +67,6 @@ function agregarAlCarrito() {
             const selectedProduct = productos.find(producto => producto.id == productoId);
             carrito.push(selectedProduct);
             localStorage.setItem("carrito", JSON.stringify(carrito))
-            location.reload()
         }
     })
 }
