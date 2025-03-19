@@ -64,9 +64,10 @@ function agregarAlCarrito() {
     botones.forEach(boton => {
         boton.onclick = (e) => {
             const productoId = e.currentTarget.id
-            const selectedProduct = productos.find(producto => producto.id == productoId)
+            const selectedProduct = productos.find(producto => producto.id == productoId);
             carrito.push(selectedProduct);
             localStorage.setItem("carrito", JSON.stringify(carrito))
+            location.reload()
         }
     })
 }
@@ -112,4 +113,10 @@ mostrarTotal.innerHTML = `<h3>Total: $${totalCompra}</h3>
                           <button class="finalizar-compra">comprar</button>`
 carritoCompra.appendChild(mostrarTotal)
 
-  
+//finalizar compra
+//     const finalizarCompra = document.querySelectorAll(".finalizar-compra")
+//     finalizarCompra.forEach(boton => {
+//     boton.onclick = (e) => {
+    
+//     }
+// })
