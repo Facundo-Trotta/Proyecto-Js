@@ -38,15 +38,16 @@ const productos = [
 ]
 
 // Creando la funcion de para mostrar los productos
-let carrito =[]
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let productCard = document.getElementById("productos")
+let carritoCompra = document.getElementById("carrito-content")
 
 function mostrarProductos(arrayProductos) {
     arrayProductos.forEach(producto => {
         const cards = document.createElement("div")
         cards.className = "card"
 
-        cards.innerHTML = ` <div class="productos-container" ID:"${producto.id}">
+        cards.innerHTML = ` <div class="productos-container">
                             <img src="${producto.imagen}" alt="">
                             <h3>${producto.nombre}</h3>
                             <span>$${producto.precio}</span>
@@ -67,11 +68,11 @@ function agregarAlCarrito() {
             const selectedProduct = productos.find(producto => producto.id == productoId);
             carrito.push(selectedProduct);
             localStorage.setItem("carrito", JSON.stringify(carrito))
+            location.reload()
         }
     })
 }
 
-let carritoCompra = document.getElementById("carrito-content")
 
 let carritoCargado = localStorage.getItem("carrito")
 carritoCargado = JSON.parse(carritoCargado)
@@ -115,7 +116,7 @@ carritoCompra.appendChild(mostrarTotal)
 //finalizar compra
 //     const finalizarCompra = document.querySelectorAll(".finalizar-compra")
 //     finalizarCompra.forEach(boton => {
-//     boton.onclick = (e) => {
+//     boton.onclick = (clear.carritoCargado)
     
 //     }
 // })
