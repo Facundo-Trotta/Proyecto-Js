@@ -41,7 +41,6 @@ const productos = [
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let productCard = document.getElementById("productos")
 let carritoCompra = document.getElementById("carrito-content")
-let mesajeCompra = document.getElementById("mensaje-compra")
 
 function mostrarProductos(arrayProductos) {
     arrayProductos.forEach(producto => {
@@ -119,8 +118,9 @@ carritoCompra.appendChild(mostrarTotal)
     const finalizarCompra = document.querySelectorAll(".finalizar-compra")
     finalizarCompra.forEach(boton => {
         boton.onclick = (e) => {
-            alert("Gracias por su compra")
-            location.reload
+            localStorage.clear("carrito",carritoCompra)
+            alert ("Se finalizo su compra y Gracias por pasar");
+            location.reload()
         }
     }
 )
