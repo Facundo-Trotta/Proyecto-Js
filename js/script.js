@@ -115,6 +115,7 @@ mostrarTotal.innerHTML = `<h3>Total: $${totalCompra}</h3>
 carritoCompra.appendChild(mostrarTotal)
 
 //finalizar compra
+
     const finalizarCompra = document.querySelectorAll(".finalizar-compra")
     finalizarCompra.forEach(boton => {
         boton.onclick = (e) => {
