@@ -118,7 +118,7 @@ carritoCompra.appendChild(mostrarTotal)
     const finalizarCompra = document.querySelectorAll(".finalizar-compra")
     finalizarCompra.forEach(boton => {
         boton.onclick = (e) => {
-            
+            alert("Gracias por su compra")
             location.reload
         }
     }
