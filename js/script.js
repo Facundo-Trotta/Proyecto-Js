@@ -67,14 +67,22 @@ function agregarAlCarrito() {
             const productoId = e.currentTarget.id
             const selectedProduct = productos.find(producto => producto.id == productoId);
             carrito.push(selectedProduct);
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Se agrego el producto al carrito",
+                showConfirmButton: false,
+                timer: 1000
+              });
             localStorage.setItem("carrito", JSON.stringify(carrito))
-            location.reload()
+            setTimeout(function() {
+                location.reload();
+            }, 1000);
         }
     })
 }
 
-
-let carritoCargado = localStorage.getItem("carrito")
+let carritoCargado = localStorage.getItem("carrito") || []
 carritoCargado = JSON.parse(carritoCargado)
 
 function mostrarCarrito (itemCarrito) {
@@ -101,7 +109,16 @@ eliminarItem.forEach(boton => {
         const itemId = e.currentTarget.id
         carritoCargado = carritoCargado.filter(item => item.id != itemId)
         localStorage.setItem("carrito", JSON.stringify(carritoCargado))
-        location.reload()
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Se elimino el producto del carrito",
+            showConfirmButton: false,
+            timer: 1000
+          });
+          setTimeout(function() {
+            location.reload();
+        }, 1000);
     }
 })
 
@@ -114,13 +131,22 @@ mostrarTotal.innerHTML = `<h3>Total: $${totalCompra}</h3>
 carritoCompra.appendChild(mostrarTotal)
 
 //finalizar compra
-
     const finalizarCompra = document.querySelectorAll(".finalizar-compra")
     finalizarCompra.forEach(boton => {
-        boton.onclick = (e) => {
+    boton.onclick = (e) => {
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Se finalizo su compra y gracias por su compra",
+            showConfirmButton: false,
+            timer: 1000
+          });
             localStorage.clear("carrito",carritoCompra)
-            alert ("Se finalizo su compra y Gracias por pasar");
-            location.reload()
+            setTimeout(function() {
+                location.reload();
+            }, 1000);
         }
     }
 )
+// efecto en los botones con libreria en (sweetAlert)
+
