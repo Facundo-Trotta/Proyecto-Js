@@ -41,8 +41,10 @@ const productos = [
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let productCard = document.getElementById("productos")
 let carritoCompra = document.getElementById("carrito-content")
+const url = "productos.json";
 
 function mostrarProductos(arrayProductos) {
+    fetch(url)
     arrayProductos.forEach(producto => {
         const cards = document.createElement("div")
         cards.className = "card"
@@ -148,5 +150,5 @@ carritoCompra.appendChild(mostrarTotal)
         }
     }
 )
-// efecto en los botones con libreria en (sweetAlert)
+//use efectos en los botones con la libreria en (sweetAlert)
 
