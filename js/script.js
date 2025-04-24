@@ -41,10 +41,8 @@ const productos = [
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let productCard = document.getElementById("productos")
 let carritoCompra = document.getElementById("carrito-content")
-const url = "productos.json";
 
 function mostrarProductos(arrayProductos) {
-    fetch(url)
     arrayProductos.forEach(producto => {
         const cards = document.createElement("div")
         cards.className = "card"
@@ -150,5 +148,14 @@ carritoCompra.appendChild(mostrarTotal)
         }
     }
 )
-//use efectos en los botones con la libreria en (sweetAlert)
+//use efectos en los botones con la libreria en (sweetAlert) y hice asincronico los botones para que reacionen al oprimirlos
 
+//proximos productos
+   fetch (`js/proximos.json`)
+    .then(response => response.json)
+    .then(data => {
+        
+    })
+    .catch(function(error){
+        console.error
+    });
