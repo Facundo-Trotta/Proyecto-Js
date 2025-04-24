@@ -151,11 +151,15 @@ carritoCompra.appendChild(mostrarTotal)
 //use efectos en los botones con la libreria en (sweetAlert) y hice asincronico los botones para que reacionen al oprimirlos
 
 //proximos productos
-   fetch (`js/proximos.json`)
-    .then(response => response.json)
-    .then(data => {
+function obtenerProductos() {
+    fetch (`js/proximos.json`)
+     .then(response => response.json)
+     .then(data => {
         
-    })
-    .catch(function(error){
-        console.error
-    });
+     })
+     .catch(function(error){
+         console.error
+     });
+}
+obtenerProductos();
+
