@@ -1,5 +1,5 @@
 // la lista de los productos
-const productos = [
+const productos1 = [
     {
         id: 1,
         nombre:"Gorra ajustable Under",
@@ -36,11 +36,11 @@ const productos = [
         cantidad: 1
     },
 ]
-
 // Creando la funcion de para mostrar los productos
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let productCard = document.getElementById("productos")
 let carritoCompra = document.getElementById("carrito-content")
+const proximoCard = document.getElementById("proximos-productos")
 
 function mostrarProductos(arrayProductos) {
     arrayProductos.forEach(producto => {
@@ -57,7 +57,20 @@ function mostrarProductos(arrayProductos) {
     })
     agregarAlCarrito();
 };
-mostrarProductos(productos);
+mostrarProductos(productos1);
+
+//proximos productos
+    fetch (`js/proximos.json`)
+     .then(function(res){
+        return res.json();
+     })
+     .then(function(data){
+     console.log(data)
+     })  
+     .catch(function(error){
+         console.error
+     });
+
 
 // paso los productos seleccionados al carrito
 function agregarAlCarrito() {
@@ -65,7 +78,7 @@ function agregarAlCarrito() {
     botones.forEach(boton => {
         boton.onclick = (e) => {
             const productoId = e.currentTarget.id
-            const selectedProduct = productos.find(producto => producto.id == productoId);
+            const selectedProduct = productos1.find(producto => producto.id == productoId);
             carrito.push(selectedProduct);
             Swal.fire({
                 position: "top-end",
@@ -150,16 +163,4 @@ carritoCompra.appendChild(mostrarTotal)
 )
 //use efectos en los botones con la libreria en (sweetAlert) y hice asincronico los botones para que reacionen al oprimirlos
 
-//proximos productos
-function obtenerProductos() {
-    fetch (`js/proximos.json`)
-     .then(response => response.json)
-     .then(data => {
-        
-     })
-     .catch(function(error){
-         console.error
-     });
-}
-obtenerProductos();
 
