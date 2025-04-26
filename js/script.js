@@ -40,7 +40,7 @@ const productos1 = [
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let productCard = document.getElementById("productos")
 let carritoCompra = document.getElementById("carrito-content")
-const proximoCard = document.getElementById("proximos-productos")
+document.getElementById(`jsonBtn`).addEventListener(`click`, cargarJSON);
 
 function mostrarProductos(arrayProductos) {
     arrayProductos.forEach(producto => {
@@ -60,16 +60,26 @@ function mostrarProductos(arrayProductos) {
 mostrarProductos(productos1);
 
 //proximos productos
+function cargarJSON() {
     fetch (`js/proximos.json`)
      .then(function(res){
         return res.json();
      })
      .then(function(data){
-     console.log(data)
+     let html = ``;
+     data.forEach(function(proximo) {
+        html += `<div class="proximos-container">
+        <img src="${proximo.imagenes}" alt="">
+        <h3>${proximo.nombres}</h3>
+        <p>${proximo.talle}</p>
+        </div>`;
+     })
+     document.getElementById(`proximos-pruductos`).innerHTML = html;
      })  
      .catch(function(error){
          console.error
      });
+}
 
 
 // paso los productos seleccionados al carrito

@@ -45,6 +45,25 @@
   width: 50%;
   height: 200px;
 }
+.prox-inicio {
+  font-size: 30px;
+  font-family: "LXGW WenKai Mono TC", monospace;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  
+}
+.proximos-container {
+  display: grid;
+  grid-template-columns: repeat(3,30%);
+  place-items: center;
+  font-size: 30px;
+  font-family: "LXGW WenKai Mono TC", monospace;
+}
+.proximos-container img {
+  width: 50%;
+  height: 200px;
+}
 .add-cart {
   background-color: #111;
   color: rgb(221, 221, 226);
